@@ -5,7 +5,38 @@
 In order to use the system you need an API key. Getting a key is free and easy, sign up here: https://www.paybear.io
 
 ## Manual Installation
-Download latest release and include PayBear.php file.
+Download latest release files.
+
+1.) Set your database credentials in *lib/base_model.php* file (95-98 lines)
+
+```php
+        $YOUR_DB_HOSTNAME   = 'YOUR_DB_HOSTNAME';
+        $YOUR_DB_NAME       = 'YOUR_DB_NAME';
+        $YOUR_DB_USERNAME   = 'YOUR_DB_USERNAME';
+        $YOUR_DB_PASSWORD   = 'YOUR_DB_PASSWORD';
+```
+
+
+2.) Set your PayBear API key (Getting a key is free and easy, sign up here: https://www.paybear.io)
+
+Set PayBear API key in *lib/PayBearOrder.php* file (19 line)
+
+```php
+        $api_key = 'YOUR_API_KEY_HERE';
+```
+
+3.) After that, open *install-mysql.php* in your browser, and tables will be installed. 
+For working example, you should install CMS order too. (it will be done after tables installation.)
+Please see *install-mysql.php* for details:
+
+```php
+        $CmsOrder->increment_id     = '100001';
+        $CmsOrder->order_total      = 19.95;
+        $CmsOrder->fiat_currency    = 'usd';
+        $CmsOrder->fiat_sign        = '$';
+```
+
+####/ ************************************* /
 
 ```php
 require_once 'lib/PayBear.php';
