@@ -22,7 +22,8 @@ Download latest release files.
 Set PayBear API key in *lib/PayBearOrder.php* file (19 line)
 
 ```php
-        $api_key = 'YOUR_API_KEY_HERE';
+        $api_secret_key = 'YOUR_API_SECRET_KEY_HERE';
+        $api_public_key = 'YOUR_API_PUBLIC_KEY_HERE';
 ```
 
 3.) After that, open *install-mysql.php* in your browser, and tables will be installed. 
