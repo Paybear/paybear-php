@@ -16,9 +16,10 @@ class PayBearOrder extends \base_model
     public function  __construct() {
         $this->tableName = parent::table_name();
 
-        $api_key = 'YOUR_API_KEY_HERE';
+        $api_secret_key = 'YOUR_API_SECRET_KEY_HERE';
+        $api_public_key = 'YOUR_API_PUBLIC_KEY_HERE';
 
-        $this->payBear = new PayBear($api_key);
+        $this->payBear = new PayBear($api_secret_key, $api_public_key);
 
         parent::__construct();
     }
