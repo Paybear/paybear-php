@@ -26,8 +26,12 @@ if (isset($_GET['token'])) {
 
     $data = array();
     foreach($currencies as $key => $currency) {
-        $currency = $payBearOrder->getCurrency($order_id, $key, $last_order->order_total, $last_order->fiat_currency);
-        if ($currency) $data[$key] = $currency;
+
+        if (count($currencies) == 1) {
+            $data = $payBearOrder->getCurrency($order_id, $key, $last_order->order_total, $last_order->fiat_currency, true );
+        }else {
+            $data[$key] = $payBearOrder->getCurrency($order_id, $key, $last_order->order_total, $last_order->fiat_currency);
+        }
     }
 }
 
