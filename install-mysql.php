@@ -4,31 +4,22 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once 'lib/PayBearOrder.php';
-require_once 'lib/PayBearAddress.php';
-require_once 'lib/PayBearTxn.php';
-
+require_once 'lib/base_model.php';
 require_once 'lib/CmsOrder.php';
 
-$payBearOrder = new PayBearOrder();
+$base_model = new base_model();
 
-$payBearOrder->install_table();
+/**
+ * install tables
+ * */
 
-$payBearAddress = new PayBearAddress();
-
-$payBearAddress->install_table();
-
-$payBearTxn = new PayBearTxn();
-
-$payBearTxn->install_table();
+$base_model->init_tables();
 
 /**
  * init CMS order example
  * */
 
 $CmsOrder = new CmsOrder();
-
-$CmsOrder->install_table();
 
 $CmsOrder->increment_id     = '100001';
 $CmsOrder->order_total      = 19.95;

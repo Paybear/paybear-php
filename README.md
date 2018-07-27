@@ -7,7 +7,7 @@ In order to use the system you need an API key. Getting a key is free and easy, 
 ## Manual Installation
 Download latest release files <a href="https://github.com/ihor-s-whidegroup/PayBear/releases">here</a>.
 
-1.) Set your database credentials in *lib/base_model.php* file (95-98 lines)
+1.) Set your database credentials in *lib/base_model.php* file (100-103 lines)
 
 ```php
         $YOUR_DB_HOSTNAME   = 'YOUR_DB_HOSTNAME';
@@ -20,6 +20,8 @@ Download latest release files <a href="https://github.com/ihor-s-whidegroup/PayB
 2.) Set your PayBear API key (Getting a key is free and easy, sign up here: https://www.paybear.io)
 
 Set PayBear API key in *lib/PayBearOrder.php* file (19 line)
+
+Currently, public key is not using yet.
 
 ```php
         $api_secret_key = 'YOUR_API_SECRET_KEY_HERE';

@@ -14,12 +14,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+require_once('lib/base_model.php');
 require_once('lib/CmsOrder.php');
 
 $cms_order = new CmsOrder();
-$last_order_id = '100001';
 
-$last_order = $cms_order->findByIncrementId($last_order_id);
+$last_order = $cms_order->last();
 
 if (empty($last_order)) {
     echo 'The order not found';

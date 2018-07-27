@@ -1,5 +1,10 @@
 <?php
 
+require_once 'PayBearOrder.php';
+require_once 'PayBearAddress.php';
+require_once 'PayBearTxn.php';
+require_once 'CmsOrder.php';
+
 
 class base_model {
     public $last_error_message;
@@ -187,5 +192,28 @@ class base_model {
             $this->sql_error = $q->errorInfo();
             return false;
         }
+    }
+
+    ############################################################
+    ### Install tables
+    ############################################################
+
+    public function init_tables () {
+
+        $payBearOrder = new PayBearOrder();
+
+        $payBearOrder->install_table();
+
+        $payBearAddress = new PayBearAddress();
+
+        $payBearAddress->install_table();
+
+        $payBearTxn = new PayBearTxn();
+
+        $payBearTxn->install_table();
+
+        $CmsOrder = new CmsOrder();
+
+        $CmsOrder->install_table();
     }
 }
