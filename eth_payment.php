@@ -53,7 +53,7 @@ if (($last_order) && ($last_order->status == 'Complete')) {
             <td><input style="background-color:#CCC; opacity: 0.8;"  type="text" value="<?php echo $last_order->fiat_currency ?>" id="fiatCurrency" readonly></td>
         </tr>
         <tr>
-            <td style="padding: 20px 0"><button id="paybear-ethereum">Pay with Crypto</button></td>
+            <td style="padding: 20px 0"><button id="paybear-ethereum">Pay with ETH</button></td>
         </tr>
     </table>
 
@@ -465,7 +465,7 @@ if (($last_order) && ($last_order->status == 'Complete')) {
             button: '#paybear-ethereum',
             fiatValue: fiatValue,
             statusUrl: "status.php?order_id=" + order_id,
-            currencies: "currencies.php?order=" + order_id + "&token=eth",
+            currencies: "currencies.php?order_id=" + order_id + "&token=eth",
             fiatCurrency: fiatCurrency,
             fiatSign: fiatSign,
             minOverpaymentFiat: 1,
