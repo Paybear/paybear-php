@@ -39,7 +39,9 @@ Please see *install-mysql.php* for details:
         $CmsOrder->fiat_sign        = '$';
 ```
 
-4.) Open *index.php* in your browser and check how it works for multiple currencies. Open *eth_payment.php* in your browser and check how it works for single currency (ETH). 
+4.) Open *index.php* in your browser and check how it works for multiple currencies. Open *eth_payment.php* in your browser and check how it works for single currency (ETH).
+ 
+ If you got any errors, check *debug.log* for more information, please.
 
 ####/ ************************************* /
 
