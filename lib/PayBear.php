@@ -55,6 +55,8 @@ class PayBear
 
             if (isset($response) && $response['success']) {
                 self::$_currencies = $response['data'];
+            }else{
+                file_put_contents('debug.log', print_r($response, true), FILE_APPEND);
             }
         }
 
@@ -75,6 +77,8 @@ class PayBear
 
             if (isset($response) && $response['success']) {
                 self::$_rates[$fiat_code] = $response['data'];
+            }else{
+                file_put_contents('debug.log', print_r($response, true), FILE_APPEND);
             }
         }
 
@@ -96,6 +100,8 @@ class PayBear
 
             if (isset($response) && $response['success']) {
                 self::$_rate[$crypto][$fiat_code] = $response['data'];
+            }else{
+                file_put_contents('debug.log', print_r($response, true), FILE_APPEND);
             }
         }
 
@@ -117,6 +123,8 @@ class PayBear
 
         if (isset($response['data'])) {
             return $response['data'];
+        }else{
+            file_put_contents('debug.log', print_r($response, true), FILE_APPEND);
         }
 
         return null;
