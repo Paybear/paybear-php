@@ -15,6 +15,29 @@ Download latest release files <a href="https://github.com/Paybear/paybear-php/re
         $YOUR_DB_USERNAME   = 'YOUR_DB_USERNAME';
         $YOUR_DB_PASSWORD   = 'YOUR_DB_PASSWORD';
 ```
+Notice: 
+
+If you'are mysql version >= 5.7, Please changed PDO init mode (106 lines)
+
+```php
+//befor
+$db = new PDO('mysql:host='.$YOUR_DB_HOSTNAME.';dbname='.$YOUR_DB_NAME , $YOUR_DB_USERNAME, $YOUR_DB_PASSWORD);
+
+//after
+$db = new PDO('mysql:host='.$YOUR_DB_HOSTNAME.';dbname='.$YOUR_DB_NAME , $YOUR_DB_USERNAME, $YOUR_DB_PASSWORD,
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET sql_mode="ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"') );
+```
+If you want notice when SQL execute catch errors. Please added debug errnode (after 106 lines)
+
+```php
+//befor
+$db = new PDO('mysql:host='.$YOUR_DB_HOSTNAME.';dbname='.$YOUR_DB_NAME , $YOUR_DB_USERNAME, $YOUR_DB_PASSWORD);
+
+//after
+$db = new PDO('mysql:host='.$YOUR_DB_HOSTNAME.';dbname='.$YOUR_DB_NAME , $YOUR_DB_USERNAME, $YOUR_DB_PASSWORD);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+```
 
 
 2.) Set your PayBear API key (Getting a key is free and easy, sign up here: https://www.paybear.io)
